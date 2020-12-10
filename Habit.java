@@ -3,6 +3,10 @@
  import java.io.FileWriter;
  import java.io.IOException;
 
+// Create constructor
+// Add first date variable(constant)
+// Add variable that holds last date when habit is done
+// Total days spent for habit - variable that always increments
 public class Habit{
 	
 	// Habit name
