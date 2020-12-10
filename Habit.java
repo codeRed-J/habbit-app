@@ -3,21 +3,23 @@
  import java.io.FileWriter;
  import java.io.IOException;
 
+// Create constructor
+// Add first date variable(constant)
+// Add variable that holds last date when habit is done
+// Total days spent for habit - variable that always increments
 public class Habit{
 	
-	// Habbit name
+	// Habit name
 	private String name;
-	// Data of habbit creation
+	// Data of habit creation
 	private LocalDate theDate;
-	// Days you do some habbit in a row
+	// Days you do some habit in a row
 	private int success;
 	// Max days in a row
 	private int record;
-	// Total days spent for habbit ( future futures )
-   //private int total;
 	
 	
-	Habbit(String name, boolean done) throws IOException {
+	Habit(String name, boolean done) throws IOException {
 		this.name = name;
 		this.theDate = LocalDate.now();
 		if(done){
@@ -31,10 +33,10 @@ public class Habit{
 	
 				
 		FileWriter fr = new FileWriter("habits.txt", true);
-		// Create string with habbit details
-		String habbitDetails = name + " " + success + " " + record + " " + theDate;
+		// Create string with habit details
+		String habitDetails = name + " " + success + " " + record + " " + theDate;
 		// Write to txt file string with details
-		fr.write(habbitDetails);
+		fr.write(habitDetails);
 		fr.append("\n");
 		fr.close();
 	}	
@@ -53,10 +55,10 @@ public class Habit{
 		}
 		System.out.println("Data successfuly added!");
 		FileWriter fr = new FileWriter("habits.txt", true);
-		// Create string with habbit details
-		String habbitDetails = name + " " + success + " " + record + " " + theDate;
+		// Create string with habit details
+		String habitDetails = name + " " + success + " " + record + " " + theDate;
 		// Write to txt file string with details
-		fr.write(habbitDetails);
+		fr.write(habitDetails);
 		fr.append("\n");
 		fr.close();
 	}
@@ -71,13 +73,13 @@ public class Habit{
 		System.out.printf("You did %s %d days in a row", name, success);
 	}
 	
-	public static void habbitDialogue(){
+	public static void habitDialogue(){
 		System.out.println("Hi there!");
-		System.out.println("You would like to create new habbit?! Great!");
+		System.out.println("You would like to create new habit?! Great!");
 		System.out.print("Enter new habbit name: ");
 		Scanner sc = new Scanner(System.in);
 		String name = sc.nextLine();
-		System.out.printf("Your new habbit name is %s", name);
+		System.out.printf("Your new habit name is %s", name);
 		
 	}
 	
