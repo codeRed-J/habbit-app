@@ -1,4 +1,0 @@
-Reading 0 0 2020-12-07
-Running 0 0 2020-12-07
-programming 15 15 2020-12-07
-walking 30 30 2020-12-07
