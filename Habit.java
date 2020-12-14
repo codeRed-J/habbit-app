@@ -6,7 +6,6 @@
 // rename name
 // rename file name
 public class Habit{
-	
 	// Habit name
 	private String name;
 	// Data of habit creation
@@ -21,6 +20,8 @@ public class Habit{
 	private int totalDays;
 	// Create name of file where will be stored information about habit
 	private String file;
+	// Save habit details in String
+	private String habitDetails;
 	
 	// Create a habit object. 
 	// If parameter done is true, it means that you done it in a day of creation
@@ -44,23 +45,24 @@ public class Habit{
 			this.record = 0;
 			this.totalDays = 0;
 		} 
-		this.file = name + ".txt";
+		this.file = name + ".csv";
 		
 				
 		FileWriter fr = new FileWriter(file);
 		// Create string with titles
-		String habitTitle = "Name\tCreated\tSast done\tRecord\tStreak";
-		// Create string with habit details
-		String habitDetails = name + " " + startDate + " " + lastDate + " " + record + " " + daysDo;
-		// Write to txt file string titles
-		fr.write(habitTitle);
-		// Write to txt file string with details
+		String habitTitle = "Name\tCreated\tLast done\tRecord\tStreak";
+		// Write to csv file string titles
+		fr.write("Name,Date of Creation,Last Done,Record,Streak");
+		fr.write(System.lineSeparator());
+		// Initialize string with habit details
+		detailsToString();
+		// Write to csv file string with details
 		fr.write(habitDetails);
-		fr.append("\n");
+		fr.write(System.lineSeparator());
 		fr.close();
 	}	
 	
-	// Add date when you did a habit.
+	// Change habit details when add a day when you did a habit.
 	public void addDay(LocalDate date) throws IOException {
 		// Check if habit already done today
 		if(lastDate.equals(date)){
@@ -84,13 +86,20 @@ public class Habit{
 		}
 		
 		FileWriter fr = new FileWriter(file, true);
-		// Create string with habit details
-		String habitDetails = name + " " + startDate + " " + lastDate + " " + record + " " + daysDo + " " + totalDays;
-		// Write to txt file string with details
+		// Initialize string with habit details
+		detailsToString();
+		// Write to csv file string with details
 		fr.write(habitDetails);
-		fr.append("\n");
+		fr.write(System.lineSeparator());
 		fr.close();
 	}
+	
+	// Gather all field information in String with coma separated way
+	private void detailsToString(){
+		this.habitDetails = name + "," + startDate + "," + lastDate + "," + record + "," + daysDo + "," + totalDays;
+	}
+	
+	
 }
 	
 	//Map<A,List<B>> map = new HashMap<A,List<B>>();
