@@ -60,6 +60,11 @@ public class Habit{
 		fr.write(habitDetails);
 		fr.write(System.lineSeparator());
 		fr.close();
+		
+		// Write name of the habit to txt file. File will hold all habits)
+		FileWriter fr = new FileWriter("habitList.txt", true)
+		fr.write(name)
+		fr.write(System.lineSeparator());
 	}	
 	
 	// Change habit details when add a day when you did a habit.

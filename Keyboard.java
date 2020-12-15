@@ -7,8 +7,7 @@ public class Keyboard{
 	Keyboard(){
 		in = new Scanner(System.in);
 	}
-	
-	// Input integer with range from 1 to range parameter value;
+	// Input integer with range from 1 to parameter value;
 	public int readInteger(int range){
 		int choice = 0;
 		String strInput;
